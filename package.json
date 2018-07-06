@@ -20,7 +20,7 @@
     "stripe": "^6.2.0"
   },
   "devDependencies": {
-    "nodemon": "^1.8.1",
+    "nodemon": "^1.17.5",
     "supertest": "^1.0.1"
   },
   "scripts": {
