@@ -124,9 +124,9 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
 ## TODO
 
-Remove the weird border the Stripe payment button has
-
-Center the payment page left section image for smaller screen sizes
+- Remove the weird border the Stripe payment button has
+- Center the payment page left section image for smaller screen sizes
+- Integrate letsencrypt certificates directly into the app
 
 ## Credits
 
