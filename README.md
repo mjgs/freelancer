@@ -120,6 +120,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
     ```
     . ./.env.prod; pm2 start $HOME/freelancer/bin/www
     ```
+    - You should ensure that SSL is configured for your domain. Hosting providers often offer this as an option. For self hosting [letsencrypt](https://letsencrypt.org/) can generate SSL certificates for a website at no cost, and adding them to a reverse proxy like [nginx](https://www.nginx.com/resources/wiki/) which would sit on front of the freelance app and handle SSL decryption.
 
 ## TODO
 
