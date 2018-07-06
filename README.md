@@ -22,6 +22,9 @@ Should an error occur, an error notification alert email is sent to the freelanc
 1. Clone the freelancer repo
 
     Fork the repo https://github.com/mjgs/freelancer
+    ```
+    npm install
+    ```
 
 2. Create .env config files
 
