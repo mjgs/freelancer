@@ -11,7 +11,7 @@ The homepage is a static landing page to display contact information.
 Payments can be made via a two step process:
 
 1. Client selects the service and package
-2. Client makes a secure payment using the Stipe checkout button
+2. Client makes a secure payment using the Stripe checkout button
 
 The payment is received by Stripe, then an email is sent to both the client and the freelancer with details of the purchase.
 
