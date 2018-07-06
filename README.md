@@ -21,7 +21,25 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
 1. Clone the freelancer repo
 
-    Fork the repo https://github.com/mjgs/freelancer
+    ```
+    # create empty public repo for you website on github
+    
+    # clone your new repo to your local machine
+    git clone https://github.com/username/domain.com && cd domain.com
+    
+    # add the freelancer project as an upstrean
+    git remote add upstream https://github.com/mjgs/freelancer
+    
+    # create you website by pulling from the freelancer project
+    git pull upstream master
+    
+    # push your website to your repo
+    git push origin master
+    
+    # Now you can commit changes to your repo
+    # You can pull changes from the freelancer upstream
+    # If you want you can send pull requests to the freelancer upstream
+    ```
 
 2. Create .env config files
 
