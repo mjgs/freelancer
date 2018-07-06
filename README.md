@@ -50,13 +50,13 @@ Should an error occur, an error notification alert email is sent to the freelanc
     ```
     Your freelance website is now running locally!
 
-
     Browse to the homepage: http://localhost:3000
+    
     Browse to service selection page: http://localhost:3000/payments/selection
 
     You will be able to browse the pages, but you won't be able to run through the payment flow completely yet because Stripe, Mailgun and Google Analytics are disabled.
 
-    Try to make a payment using the Stripe test card number 4242 4242 4242 4242, a date in the future, and CVC 424. You will see a popup message from stripe saying you haven't set the publishable key.
+    Try to make a payment using the Stripe test card number 4242 4242 4242 4242, a date in the future, and CVC 424. You will see a popup message from Stripe saying you haven't set the publishable key.
 
 6. Replace the placeholder data with your data
 
@@ -68,7 +68,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
         - Update the Footer section with your domain name and venture name
         - Add analytics code snippets in head and body section (e.g. google analytics / tag manager etc)
 
-    About the pricing data - add/remove services as needed, use the same format as already in the sample file. Each service should have 3 packages (basic, standard, premium). You can name the services whatever you like. Use single quotes around service names that have spaces.
+    About the pricing data - add/remove services as needed, use the same format as already in the sample file. Each service should have 3 packages (basic, standard, premium). You can name the services whatever you like.
 
 7. Setup 3rd party site accounts
 
@@ -120,9 +120,11 @@ Should an error occur, an error notification alert email is sent to the freelanc
 ## TODO
 
 Remove the weird border the Stripe payment button has
+
 Center the payment page left section image for smaller screen sizes
 
 ## Credits
 
 Templates from [HTML5UP](http://html5up.net)
+
 Photography from [Unplash](https://unsplash.com/)
