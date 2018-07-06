@@ -115,7 +115,6 @@ Should an error occur, an error notification alert email is sent to the freelanc
 11. Deploy the site to your deployment environment
 
     - For Heroku and similar services use the deployment cmd line tools they provide, set environment variables using their web UI and ensure .env.prod is an empty file (or just comments)
-
     - For a regular VPC server, ensure node and pm2 are installed then rsync the files to $HOME/freelancer, and run
     ```
     . ./.env.prod; pm2 start $HOME/freelancer/bin/www
