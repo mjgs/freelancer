@@ -1,0 +1,17 @@
+const app = require('../app.js');
+const http = require('http');
+
+const env = app.get('env');
+const host = app.get('host');
+const port = app.get('port');
+
+/**
+ * Start Express server.
+ */
+http.createServer(app)
+  .listen(port, function(err) {
+    if (err) {
+      throw err;
+    }
+    console.log(`Web server listening at http://${host}:${port} in ${env} mode`);
+  });

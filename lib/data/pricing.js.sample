@@ -1,0 +1,28 @@
+const services = [
+  {
+    name: 'consultancy',
+    packages: {
+      basic: 10,
+      standard: 20,
+      premium: 30
+    }
+  },
+  {
+    name: 'translation',
+    packages:  {
+      basic: 10,
+      standard: 20,
+      premium: 30
+    }
+  },
+  {
+    name: 'graphic design',
+    packages: {
+      basic: 10,
+      standard: 20,
+      premium: 30
+    }
+  }
+];
+
+module.exports = services;
