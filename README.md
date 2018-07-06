@@ -26,24 +26,10 @@ Should an error occur, an error notification alert email is sent to the freelanc
     npm install
     ```
 
-2. Create .env config files
+2. Create the config files, data files and static homepage file
 
     ```
-    cp .env.sample .env.dev
-    cp .env.sample .env.prod
-    ```
-3. Create the data files
-
-    ```
-    # Update both created files with your data 
-    cp ./lib/data/pricing.js.sample ./lib/data/pricing.js
-    cp ./lib/data/profile.js.sample ./lib/data/profile.js
-     ```
-
-4. Create the static homepage
-
-    ```
-    cp ./lib/static/homepage/index.html.sample ./lib/static/homepage/index.html
+    npm run install
     ```
 
 5. Start the web server locally
