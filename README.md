@@ -97,8 +97,9 @@ Should an error occur, an error notification alert email is sent to the freelanc
 9. Commit your modifications to your repo
 
     ```
-    git add * 
+    git add .env.* * 
     git commit -m "Initial configuration"
+    git push
     ```
 
 10. Restart the site locally
