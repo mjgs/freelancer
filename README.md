@@ -1,6 +1,6 @@
 ## Freelancer
 
-A simple website for freelancers providing a homepage for contact information and a set of payments pages to securely receive payments for freelance services
+Wwebsite for freelancers with homepage and payments pages to securely receive payments for services
 
 Payments are handled by Stripe and email notification is via Mailgun.
 
