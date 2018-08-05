@@ -1,6 +1,6 @@
 ## Freelancer
 
-Wwebsite for freelancers with homepage and payments pages to securely receive payments for services
+Website for freelancers with homepage and payments pages to securely receive payments for services.
 
 Payments are handled by Stripe and email notification is via Mailgun.
 
