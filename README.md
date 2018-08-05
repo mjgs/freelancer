@@ -19,9 +19,8 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
 ### Setup
 
-1. Clone the freelancer repo
+1. Fork the freelancer repo https://github.com/mjgs/freelancer
 
-    Fork the repo https://github.com/mjgs/freelancer
     ```
     npm install
     ```
@@ -32,7 +31,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
     npm run install
     ```
 
-5. Start the web server locally
+3. Start the web server locally
 
     ```
     npm start
@@ -47,7 +46,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
     Try to make a payment using the Stripe test card number 4242 4242 4242 4242, a date in the future, and CVC 424. You will see a popup message from Stripe saying you haven't set the publishable key.
 
-6. Replace the placeholder data with your data
+4. Replace the placeholder data with your data
 
     - Update ./lib/data/pricing.js with your pricing data
     - Update ./lib/data/profile.js with your profile data
@@ -59,7 +58,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
     About the pricing data - add/remove services as needed, use the same format as already in the sample file. Each service should have 3 packages (basic, standard, premium). You can name the services whatever you like.
 
-7. Setup 3rd party site accounts
+5. Setup 3rd party site accounts
 
     - Purchase a domain name from a domain registrar
     - Setup a Stripe account and update in the .env files:
@@ -76,19 +75,19 @@ Should an error occur, an error notification alert email is sent to the freelanc
         - MAILGUN_ENABLED=1
         - GOOGLE_TM_ENABLED=1
 
-8. Replace the payments page images
+6. Replace the payments page images
 
     - Update the two img tags in ./lib/views/payments/purchase.ejs with images that more suits your line of freelancing
 
-9. Commit your modifications to your repo
+7. Commit your modifications to your forked repo
 
     ```
-    git add .env.* * 
-    git commit -m "Initial configuration"
+    git add * 
+    git commit -m "Customized freelancer project"
     git push
     ```
 
-10. Restart the site locally
+8. Restart the site locally
 
     ```
     # First quit the process from step 5 (type ctr-c) and then
@@ -98,7 +97,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
     Browse to http://localhost:3000
 
-11. Deploy the site to your deployment environment
+9. Deploy the site to your deployment environment
 
     - For Heroku and similar services use the deployment cmd line tools they provide, set environment variables using their web UI and ensure .env.prod is an empty file (or just comments)
     - For a regular VPC server, ensure node and pm2 are installed then rsync the files to $HOME/freelancer, and run
