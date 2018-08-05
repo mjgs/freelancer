@@ -1,7 +1,7 @@
 {
   "name": "freelancer",
   "version": "0.0.1",
-  "description": "A simple website for freelancers providing a homepage and payments pages to securely receive payments for services",
+  "description": "Website for freelancers with homepage and payments pages to securely receive payments for services",
   "private": true,
   "dependencies": {
     "async": "^1.5.2",
