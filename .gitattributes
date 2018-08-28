@@ -1,0 +1,2 @@
+lib/**/*.js linguist-language=Javascript
+lib/static/* linguist-vendored
