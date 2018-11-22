@@ -36,6 +36,10 @@ app.set('port', environment.port || 3000);
 app.set('views', './lib/views');
 app.set('view engine', 'ejs');
 
+if (app.get('env') === 'production') {
+  app.set('trust proxy', true);
+}
+
 app.use(express.static('public'));
 app.use('/', express.static('./lib/static/homepage'));
 app.use('/payments', express.static('./lib/static/payments'));
