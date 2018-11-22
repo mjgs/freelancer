@@ -28,7 +28,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
 2. Create the config files, data files and static homepage file
 
     ```
-    npm run install
+    npm run setup
     ```
 
 3. Start the web server locally
