@@ -56,6 +56,8 @@ Should an error occur, an error notification alert email is sent to the freelanc
         - Update the Footer section with your domain name and venture name
         - Add analytics code snippets in head and body section (e.g. google analytics / tag manager etc)
 
+    About the profile data - Set the landing page domain and services page domain to two different domain names to have them served on different domains. Set them to the same domain if both are to be served from the same domain name. 
+
     About the pricing data - add/remove services as needed, use the same format as already in the sample file. Each service should have 3 packages (basic, standard, premium). You can name the services whatever you like.
 
 5. Setup 3rd party site accounts
