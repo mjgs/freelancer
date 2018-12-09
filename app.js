@@ -36,6 +36,9 @@ app.use('/healthcheck', function healthcheck(req, res) {
 app.set('env', environment.env);
 app.set('host', environment.host || 'localhost');
 app.set('port', environment.port || 3000);
+if (app.get('env') === 'production') {
+  app.set('trust proxy', true);
+}
 
 app.use(helmet());
 app.use(responseTime());
