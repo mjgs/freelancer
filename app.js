@@ -5,11 +5,14 @@ const logger = require('morgan');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const vhost = require('vhost');
 const responseTime = require('response-time');
+const serveStatic = require('serve-static');
 
 const middleware = require('./lib/middleware');
-const routes = require('./lib/routes');
 const environment = require('./lib/environment');
+const apps = require('./lib/apps');
+const data = require('./lib/data');
 
 Object.keys(environment).forEach(function(variable) {
   debug(`${variable}: ${environment[variable]}`);
@@ -30,36 +33,29 @@ app.use('/healthcheck', function healthcheck(req, res) {
   });
 });
 
-app.set('env', environment.nodeEnv);
+app.set('env', environment.env);
 app.set('host', environment.host || 'localhost');
 app.set('port', environment.port || 3000);
-app.set('views', './lib/views');
-app.set('view engine', 'ejs');
 
-app.use(express.static('public'));
-app.use('/', express.static('./lib/static/homepage'));
-app.use('/payments', express.static('./lib/static/payments'));
-app.use('/errors', express.static('./node_modules/server-error-pages/_site'));
-
+app.use(helmet());
+app.use(responseTime());
+app.use(compression());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(responseTime());
-app.use(helmet());
-app.use(compression());
-app.use(middleware.sendEmails({
-  mailgunApiKey: environment.mailgunApiKey,
-  mailgunDomain: environment.mailgunDomain
-}));
-
 app.use(middleware.setGoogleTmId);
-app.use('/payments', routes.payments);
+
+Object.keys(apps).forEach(function(key) {
+  app.use(vhost(data.profile.domains[key], apps[key]));
+});
+
+app.use('/errors', express.static('./node_modules/server-error-pages/_site'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   /*jshint unused: consts*/
   const err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  return next(err);
 });
 
 app.use(middleware.errorHandler);
