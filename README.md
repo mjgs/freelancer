@@ -1,12 +1,21 @@
 ## Freelancer
 
-Website for freelancers with homepage and payments pages to securely receive payments for services.
+Website for freelancers that runs sites. Each site can be static and/or dynamic, you can easily associate domain names to each site and adding a site is as simple as creating an express app and adding it to the apps folder.
 
-Payments are handled by Stripe and email notification is via Mailgun.
+Two starter apps:
+
+1. Homepage - static site to link to your other online sites, social media etc
+2. Services - static+dynamic site to securely receive payments for services
+
+Payments are handled by Stripe and email notifications are via Mailgun.
 
 ### Description
 
+**Homepage** 
+
 The homepage is a static landing page to display contact information.
+
+**Services**
 
 Payments can be made via a two step process:
 
@@ -28,25 +37,34 @@ Should an error occur, an error notification alert email is sent to the freelanc
 2. Create the config files, data files and static homepage file
 
     ```
-    npm run install
+    npm run setup
     ```
 
-3. Start the web server locally
+3. Add development domain resolution 
+
+    Add to your /etc/hosts file:
+
+    ```
+    127.0.0.1 domain.com
+    127.0.0.1 domain-services.com
+    ```
+    
+4. Start the web server locally
 
     ```
     npm start
     ```
     Your freelance website is now running locally!
 
-    Browse to the homepage: http://localhost:3000
+    Browse to the homepage: http://domain.com:3000
     
-    Browse to service selection page: http://localhost:3000/payments/selection
+    Browse to service selection page: http://domain-services.com:3000/payments/selection
 
     You will be able to browse the pages, but you won't be able to run through the payment flow completely yet because Stripe, Mailgun and Google Analytics are disabled.
 
     Try to make a payment using the Stripe test card number 4242 4242 4242 4242, a date in the future, and CVC 424. You will see a popup message from Stripe saying you haven't set the publishable key.
 
-4. Replace the placeholder data with your data
+5. Replace the placeholder data with your data
 
     - Update ./lib/data/pricing.js with your pricing data
     - Update ./lib/data/profile.js with your profile data
@@ -56,11 +74,11 @@ Should an error occur, an error notification alert email is sent to the freelanc
         - Update the Footer section with your domain name and venture name
         - Add analytics code snippets in head and body section (e.g. google analytics / tag manager etc)
 
-    About the profile data - Set the landing page domain and services page domain to two different domain names to have them served on different domains. Set them to the same domain if both are to be served from the same domain name. 
+    About the profile data - Set the landing page domain and services page domain to two different domain names to have them served on different domains. Set them to the same domain if both are to be served from the same domain name. You will need to configure your domain names to point to your live server in your domain registrar DNS configuration.
 
     About the pricing data - add/remove services as needed, use the same format as already in the sample file. Each service should have 3 packages (basic, standard, premium). You can name the services whatever you like.
 
-5. Setup 3rd party site accounts
+6. Setup 3rd party site accounts
 
     - Purchase a domain name from a domain registrar
     - Setup a Stripe account and update in the .env files:
@@ -77,19 +95,21 @@ Should an error occur, an error notification alert email is sent to the freelanc
         - MAILGUN_ENABLED=1
         - GOOGLE_TM_ENABLED=1
 
-6. Replace the payments page images
+7. Replace the payments page images
 
     - Update the two img tags in ./lib/views/payments/purchase.ejs with images that more suits your line of freelancing
 
-7. Commit your modifications to your forked repo
+8. Commit your modifications to your forked repo production branch
 
     ```
+    git branch production
+    git checkout production
     git add * 
     git commit -m "Customized freelancer project"
     git push
     ```
 
-8. Restart the site locally
+9. Restart the site locally
 
     ```
     # First quit the process from step 5 (type ctr-c) and then
@@ -97,9 +117,11 @@ Should an error occur, an error notification alert email is sent to the freelanc
     ```
     The site should now be running with all your configured data.
 
-    Browse to http://localhost:3000
+    Browse to the homepage: http://domain.com:3000
+    
+    Browse to service selection page: http://domain-services.com:3000/payments/selection
 
-9. Deploy the site to your deployment environment
+10. Deploy the site to your deployment environment
 
     - For Heroku and similar services use the deployment cmd line tools they provide, set environment variables using their web UI and ensure .env.prod is an empty file (or just comments)
     - For a regular VPC server, ensure node and pm2 are installed then rsync the files to $HOME/freelancer, and run
