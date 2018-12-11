@@ -47,6 +47,10 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(middleware.setGoogleTmId);
+app.use(middleware.sendEmails({
+  mailgunApiKey: environment.mailgunApiKey,
+  mailgunDomain: environment.mailgunDomain
+}));
 
 Object.keys(apps).forEach(function(key) {
   app.use(vhost(data.profile.domains[key], apps[key]));
