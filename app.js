@@ -33,6 +33,7 @@ app.use('/healthcheck', function healthcheck(req, res) {
   });
 });
 
+app.set('view engine', 'ejs');
 app.set('env', environment.env);
 app.set('host', environment.host || 'localhost');
 app.set('port', environment.port || 3000);
