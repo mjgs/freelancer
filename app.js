@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const vhost = require('vhost');
 const responseTime = require('response-time');
-const serveStatic = require('serve-static');
 
 const middleware = require('./lib/middleware');
 const environment = require('./lib/environment');
