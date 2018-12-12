@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const vhost = require('vhost');
 const responseTime = require('response-time');
+const serveStatic = require('serve-static');
+const path = require('path');
 
 const middleware = require('./lib/middleware');
 const environment = require('./lib/environment');
@@ -41,10 +43,13 @@ if (app.get('env') === 'production') {
 }
 
 app.use(helmet());
+app.use(middleware.logRequest('main'));
 app.use(responseTime());
 app.use(compression());
+app.use(serveStatic(path.join(process.cwd(), 'public/common')));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 app.use(middleware.setGoogleTmId);
 app.use(middleware.sendEmails({
   mailgunApiKey: environment.mailgunApiKey,
