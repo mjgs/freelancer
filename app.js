@@ -34,6 +34,7 @@ app.use('/healthcheck', function healthcheck(req, res) {
   });
 });
 
+app.set('views', path.join(__dirname, '/lib/views'));
 app.set('view engine', 'ejs');
 app.set('env', environment.env);
 app.set('host', environment.host || 'localhost');
