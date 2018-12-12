@@ -28,7 +28,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
 2. Create the config files, data files and static homepage file
 
     ```
-    npm run install
+    npm run setup
     ```
 
 3. Start the web server locally
@@ -79,9 +79,11 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
     - Update the two img tags in ./lib/views/payments/purchase.ejs with images that more suits your line of freelancing
 
-7. Commit your modifications to your forked repo
+7. Commit your modifications to your forked repo production branch
 
     ```
+    git branch production
+    git checkout production
     git add * 
     git commit -m "Customized freelancer project"
     git push
