@@ -53,6 +53,7 @@ app.use(middleware.sendEmails({
 }));
 
 Object.keys(apps).forEach(function(key) {
+  debug(`Adding domain:${data.profile.domains[key]} --> app:${key}`);
   app.use(vhost(data.profile.domains[key], apps[key]));
 });
 
