@@ -1,20 +1,59 @@
 #!/usr/bin/env bash
 
-echo "creating file: .env.dev"
-cp .env.sample .env.dev
+# Exit on error
+set -e; set -o pipefail
 
-echo "creating file: .env.prod"
-cp .env.sample .env.prod
+#
+# Sets up environment, data and custom static files
+# This script is usually only run once during initial project setup
+#
 
-echo "creating file: ./lib/data/pricing.js"
-cp ./lib/data/pricing.js.sample ./lib/data/pricing.js
+if [ -n "$DEBUG" ]; then
+  echo "$0: Setting bash option -x for debug"
+  PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+  set -x
+fi
 
-echo "creating file: ./lib/data/profile.js"
-cp ./lib/data/profile.js.sample ./lib/data/profile.js
+DATA_DIR=lib/data
+APPS_DIR=lib/apps
 
-echo "creating file: ./static/homepage/index.html"
-cp ./static/homepage/index.html.sample ./static/homepage/index.html
+#
+# Functions
+#
 
-echo "Follow the README setup instructions to get the website running"
+function createDir() {
+  DIR=$1
+
+  echo "  creating directory: $DIR"
+
+  mkdir -p $DIR
+}
+
+function createFile() {
+  SRC=$1
+  TGT=$2
+
+  echo "  creating file: $TGT"
+
+  cp $SRC $TGT
+}
+
+#
+# Main
+#
+
+# Create environment files
+echo "Creating env files..."
+createFile .env.sample .env.dev
+createFile .env.sample .env.prod
+
+# Create custom files
+echo
+echo "Creating custom static and data files..."
+createFile $APPS_DIR/homepage/static/index.html $APPS_DIR/homepage/public/index.html
+createFile $APPS_DIR/services/data.js.sample $APPS_DIR/services/data.js
+
+echo
+echo "Follow the setup instructions in README.md to get the website running"
 
 exit 0
