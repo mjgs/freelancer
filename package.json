@@ -1,6 +1,6 @@
 {
   "name": "freelancer",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Website for freelancers with homepage and payments pages to securely receive payments for services",
   "private": true,
   "dependencies": {
