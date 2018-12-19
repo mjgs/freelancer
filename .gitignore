@@ -30,4 +30,4 @@ nbproject
 ########################
 .env.*
 
-public
+public/*
