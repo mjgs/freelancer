@@ -105,6 +105,9 @@ Should an error occur, an error notification alert email is sent to the freelanc
         - STRIPE_ENABLED=1
         - MAILGUN_ENABLED=1
         - GOOGLE_TM_ENABLED=1
+    - Setup the domain names for your apps, using env variables enables you to have different domain names configued on your dev and live servers 
+        - DOMAIN_HOMEPAGE 
+        - DOMAIN_SERVICES
 
 8. Replace the payments page images
 
@@ -140,6 +143,11 @@ Should an error occur, an error notification alert email is sent to the freelanc
     . ./.env.prod; pm2 start $HOME/freelancer/bin/www
     ```
     - You should ensure that SSL is configured for your domain. Hosting providers often offer this as an option. For self hosting [letsencrypt](https://letsencrypt.org/) can generate SSL certificates for a website at no cost, and adding them to a reverse proxy like [nginx](https://www.nginx.com/resources/wiki/) which would sit on front of the freelance app and handle SSL decryption.
+    
+12. To get the latest updates from freelancer project
+
+    - Pull changes into your master branch 
+    - Merge the changes you want into the production branch from your local master branch
 
 ## TODO
 
