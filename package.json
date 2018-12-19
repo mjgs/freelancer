@@ -37,7 +37,7 @@
     "snyk:wizard": "snyk wizard"
   },
   "engines": {
-    "node": "9.2.0"
+    "node": "10.11.0"
   },
   "author": "Mark Smith"
 }
