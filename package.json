@@ -30,7 +30,7 @@
     "start:dev": "npm run start:dev:client & npm run start:dev:server",
     "start:dev:client": ". ./.env.dev; nodemon --watch lib --ext 'html,css' --exec 'npm run build'",
     "start:dev:server": ". ./.env.dev; nodemon $NODE_DEBUG_OPTION ./bin/www",
-    "start:prod": "if [ -e ./.env.prod ]; then . ./.env.prod; fi; node $NODE_DEBUG_OPTION ./bin/www",
+    "start:prod": "if [ -e ./.env.prod ]; then . ./.env.prod; fi; npm run build; node $NODE_DEBUG_OPTION ./bin/www",
     "build": "./bin/build.sh",
     "setup": "./bin/setup.sh"
   },
