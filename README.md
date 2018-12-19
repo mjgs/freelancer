@@ -48,37 +48,48 @@ Should an error occur, an error notification alert email is sent to the freelanc
     127.0.0.1 domain.com
     127.0.0.1 domain-services.com
     ```
+
+4. Build the project public directory
+
+    ```
+    npm run build
+    ``` 
     
-4. Start the web server locally
+    This will create the public directory in the root of your project
+    
+5. Start the web server locally
 
     ```
     npm start
     ```
     Your freelance website is now running locally!
 
-    Browse to the homepage: http://domain.com:3000
+    Browse to the homepage site: http://domain.com:3000
     
-    Browse to service selection page: http://domain-services.com:3000/payments/selection
+    Browse to services site: http://domain-services.com:3000
 
     You will be able to browse the pages, but you won't be able to run through the payment flow completely yet because Stripe, Mailgun and Google Analytics are disabled.
 
     Try to make a payment using the Stripe test card number 4242 4242 4242 4242, a date in the future, and CVC 424. You will see a popup message from Stripe saying you haven't set the publishable key.
 
-5. Replace the placeholder data with your data
+6. Replace the placeholder data with your data
 
-    - Update ./lib/data/pricing.js with your pricing data
-    - Update ./lib/data/profile.js with your profile data
-    - Update ./lib/static/homepage/index.html
-        - Update the page title with your name
-        - Update the Header section with your name, byline and contact links
-        - Update the Footer section with your domain name and venture name
-        - Add analytics code snippets in head and body section (e.g. google analytics / tag manager etc)
+    - Update lib/server/data.js with your domain names
+    - Update lib/apps/services/data.js with your profile and pricing data
+    - Update lib/apps/homepage/public/index.html
+      - Update \<title>, \<header> and \<footer> content to suit your needs
+      - Add analytics code snippets in head and body section
+    - Update lib/apps/services/public/index.html
+      - Update the \<title> and \<header> content to suit your needs
+      - Add analytics code snippets in head and body section
 
-    About the profile data - Set the landing page domain and services page domain to two different domain names to have them served on different domains. Set them to the same domain if both are to be served from the same domain name. You will need to configure your domain names to point to your live server in your domain registrar DNS configuration.
+    About the domains data - When you deploy to a live server, you will need to configure your domain names to point to your live server in your domain registrar DNS configuration.
 
     About the pricing data - add/remove services as needed, use the same format as already in the sample file. Each service should have 3 packages (basic, standard, premium). You can name the services whatever you like.
+    
+    The main landing pages are implemented as static pages for performance, generation could be automated in a build step.
 
-6. Setup 3rd party site accounts
+7. Setup 3rd party site accounts
 
     - Purchase a domain name from a domain registrar
     - Setup a Stripe account and update in the .env files:
@@ -95,11 +106,11 @@ Should an error occur, an error notification alert email is sent to the freelanc
         - MAILGUN_ENABLED=1
         - GOOGLE_TM_ENABLED=1
 
-7. Replace the payments page images
+8. Replace the payments page images
 
-    - Update the two img tags in ./lib/views/payments/purchase.ejs with images that more suits your line of freelancing
+    - Update the two img tags in ./lib/apps/services/views/pages/purchase.ejs with images that more suits your line of freelancing
 
-8. Commit your modifications to your forked repo production branch
+9. Commit your modifications to your forked repo production branch
 
     ```
     git branch production
@@ -109,7 +120,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
     git push
     ```
 
-9. Restart the site locally
+10. Restart the site locally
 
     ```
     # First quit the process from step 5 (type ctr-c) and then
@@ -121,7 +132,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
     
     Browse to service selection page: http://domain-services.com:3000/payments/selection
 
-10. Deploy the site to your deployment environment
+11. Deploy the site to your deployment environment
 
     - For Heroku and similar services use the deployment cmd line tools they provide, set environment variables using their web UI and ensure .env.prod is an empty file (or just comments)
     - For a regular VPC server, ensure node and pm2 are installed then rsync the files to $HOME/freelancer, and run
@@ -134,6 +145,7 @@ Should an error occur, an error notification alert email is sent to the freelanc
 
 - Remove the weird border the Stripe payment button has
 - Integrate letsencrypt certificates directly into the app
+- Automate static file data replacement in a build step (step 6) 
 
 ## Credits
 
