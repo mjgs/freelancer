@@ -29,3 +29,5 @@ nbproject
 # project
 ########################
 .env.*
+
+public/*
