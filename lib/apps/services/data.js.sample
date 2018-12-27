@@ -55,7 +55,6 @@ const services = [
 const profile = {
   name: 'yourname',
   venture: 'name of venture',
-  pricing: 'https://domain.com/pricing',
   email: {
     sender: 'donotreply@domain.com',
     receiver: 'username@domain.com'
