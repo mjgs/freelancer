@@ -21,7 +21,7 @@
     "response-time": "^2.3.2",
     "serve-static": "^1.13.2",
     "server-error-pages": "0.0.4",
-    "stripe": "^6.29.0",
+    "stripe": "^7.9.0",
     "vhost": "^3.0.2"
   },
   "devDependencies": {
