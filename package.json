@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.2",
-    "snyk": "^1.151.2",
     "supertest": "^4.0.2"
   },
   "scripts": {
@@ -40,8 +39,7 @@
     "debug:start:dev": ". ./.env.dev; npm run start:dev:client & npm run debug:start:dev:server",
     "debug:start:dev:server": ". ./.env.dev; nodemon --watch lib/server --ext 'js,ejs' --nolazy --inspect-brk=$DEBUG_PORT ./bin/www",
     "build": "./bin/build.sh",
-    "setup": "./bin/setup.sh",
-    "snyk:wizard": "snyk wizard"
+    "setup": "./bin/setup.sh"
   },
   "engines": {
     "node": "10.11.0"
