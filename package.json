@@ -4,30 +4,28 @@
   "description": "Website for freelancers with homepage and payments pages to securely receive payments for services",
   "private": true,
   "dependencies": {
-    "async": "^2.6.2",
-    "body-parser": "^1.18.3",
+    "async": "^3.1.0",
+    "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
-    "csurf": "^1.9.0",
+    "csurf": "^1.10.0",
     "debug": "^4.1.1",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
     "express-jwt": "^5.3.1",
-    "helmet": "^3.16.0",
+    "helmet": "^3.21.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
-    "nodemailer": "^6.1.1",
+    "nodemailer": "^6.3.0",
     "nodemailer-mailgun-transport": "^1.4.0",
     "response-time": "^2.3.2",
-    "serve-static": "^1.13.2",
+    "serve-static": "^1.14.1",
     "server-error-pages": "0.0.4",
-    "stripe": "^6.29.0",
+    "stripe": "^7.9.0",
     "vhost": "^3.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.19.2",
-    "snyk": "^1.151.2",
-    "supertest": "^4.0.2"
+    "nodemon": "^1.19.2"
   },
   "scripts": {
     "start": "export NODE_ENV=${NODE_ENV=development}; if [ $NODE_ENV = 'production' ]; then npm run start:prod; else npm run start:dev; fi",
@@ -40,8 +38,7 @@
     "debug:start:dev": ". ./.env.dev; npm run start:dev:client & npm run debug:start:dev:server",
     "debug:start:dev:server": ". ./.env.dev; nodemon --watch lib/server --ext 'js,ejs' --nolazy --inspect-brk=$DEBUG_PORT ./bin/www",
     "build": "./bin/build.sh",
-    "setup": "./bin/setup.sh",
-    "snyk:wizard": "snyk wizard"
+    "setup": "./bin/setup.sh"
   },
   "engines": {
     "node": "10.11.0"
