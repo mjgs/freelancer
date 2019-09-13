@@ -25,8 +25,7 @@
     "vhost": "^3.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.19.2",
-    "supertest": "^4.0.2"
+    "nodemon": "^1.19.2"
   },
   "scripts": {
     "start": "export NODE_ENV=${NODE_ENV=development}; if [ $NODE_ENV = 'production' ]; then npm run start:prod; else npm run start:dev; fi",
